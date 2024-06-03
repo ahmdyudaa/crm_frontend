@@ -8,9 +8,10 @@ $(document).ready(function () {
                 $('#customerTableBody').empty();
                 let no = 0;
                 data.forEach(function (customer) {
+                    no++;
                     $('#customerTableBody').append(`
                         <tr>
-                            <td>${no + 1}</td>
+                            <td>${no}</td>
                             <td>${customer.nama}</td>
                             <td>${customer.telp}</td>
                             <td>${customer.alamat}</td>
@@ -54,8 +55,7 @@ $(document).ready(function () {
         event.preventDefault();
         loadProspekOptions();
         const customerData = {
-            nama: $('#createNama').val(),
-            telp: $('#createTelepon').val(),
+            id: $('#createNama').val(),
             alamat: $('#createAlamat').val()
         };
         $.ajax({
@@ -78,7 +78,7 @@ $(document).ready(function () {
             url: `https://crmbackend-dot-seraphic-jet-414906.as.r.appspot.com/customer/${id}`,
             method: 'GET',
             success: function (customer) {
-                $('#editCustomerId').val(customer.id);
+                $('#editCustomerId').val(customer[0].id);
                 $('#editNama').val(customer[0].nama);
                 $('#editTelepon').val(customer[0].telp);
                 $('#editAlamat').val(customer[0].alamat);
@@ -97,7 +97,7 @@ $(document).ready(function () {
             alamat: $('#editAlamat').val()
         };
         $.ajax({
-            url: `https://crmbackend-dot-seraphic-jet-414906.as.r.appspot.com/customer/5`,
+            url: `https://crmbackend-dot-seraphic-jet-414906.as.r.appspot.com/customer/${id}`,
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(customerData),

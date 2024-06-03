@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Penjualan Management</h1>
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#createPenjualanModal">Create Penjualan</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nama Prospek</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Total</th>
+                    <th>Total Bayar</th>
+                    <th>Tanggal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="penjualanTableBody">
+                <!-- Data will be injected here by jQuery -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Create Modal -->
+    <div class="modal fade" id="createPenjualanModal" tabindex="-1" aria-labelledby="createPenjualanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPenjualanModalLabel">Create Penjualan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="createPenjualanForm">
+                        <div class="form-group">
+                            <label for="createProspekId">Nama Prospek</label>
+                            <select class="form-control" id="createProspekId" required>
+                                <!-- Options will be injected here by jQuery -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="createProdukId">Nama Produk</label>
+                            <select class="form-control" id="createProdukId" required>
+                                <!-- Options will be injected here by jQuery -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="createKategori">Kategori</label>
+                            <select class="form-control" id="createKategori" required>
+                                <option value="herbal">Herbal</option>
+                                <option value="non-herbal">Non-Herbal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="createHarga">Harga</label>
+                            <input type="number" class="form-control" id="createHarga" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="createTotal">Total</label>
+                            <input type="number" class="form-control" id="createTotal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="createTanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="createTanggal" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editPenjualanModal" tabindex="-1" aria-labelledby="editPenjualanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPenjualanModalLabel">Edit Penjualan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPenjualanForm">
+                        <input type="hidden" id="editIdPenjualan">
+                        <div class="form-group">
+                            <label for="editProspekId">Nama Prospek</label>
+                            <select class="form-control" id="editProspekId" required>
+                                <!-- Options will be injected here by jQuery -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editProdukId">Nama Produk</label>
+                            <select class="form-control" id="editProdukId" required>
+                                <!-- Options will be injected here by jQuery -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editKategori">Kategori</label>
+                            <select class="form-control" id="editKategori" required>
+                                <option value="herbal">Herbal</option>
+                                <option value="non-herbal">Non-Herbal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editHarga">Harga</label>
+                            <input type="number" class="form-control" id="editHarga" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTotal">Total</label>
+                            <input type="number" class="form-control" id="editTotal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="editTanggal" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="penjualan.js"></script>
+</body>
+</html>
