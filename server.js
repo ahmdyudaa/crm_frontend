@@ -21,7 +21,7 @@ function isAuthenticated(req, res, next) {
     if (req.session && req.session.loggedIn) {
         return next();
     } else {
-        return res.redirect('/login');
+        return res.redirect('/');
     }
 }
 
@@ -29,7 +29,7 @@ function isAuthenticated(req, res, next) {
 app.use(express.static(path.join(__dirname)));
 
 // Rute untuk menampilkan halaman login
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 

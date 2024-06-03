@@ -33,7 +33,7 @@ $(document).ready(function () {
         const prospekData = {
             nama: $('#createNama').val(),
             telp: $('#createTelp').val(),
-            status: $('#createStatus').val()
+            status: 'prospek',
         };
         $.ajax({
             url: 'https://crmbackend-dot-seraphic-jet-414906.as.r.appspot.com/prospek',
